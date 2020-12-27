@@ -1,0 +1,9 @@
+namespace :pdf do
+  task export: :environment do
+    pdf = WickedPdf.new.pdf_from_html_file('/Volumes/UBUNTU/development/quran_export/pages/quran-complete.html', {enable_local_file_access: true})
+
+    File.open("quran-complete.pdf", 'wb') do |file|
+      file << pdf
+    end
+  end
+end

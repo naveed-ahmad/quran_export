@@ -1,0 +1,10 @@
+<div class="page">
+  <% @chapters.each do |chapter| %>
+    <h1 class="text-gold text-center">
+      <%= chapter.chapter_number %>
+      .&nbsp<%= TranslatedName.where(resource_type: "Chapter", language_name: "english", resource_id: chapter.id).first.name %>
+      <div>(<%= chapter.name_simple %>)</div>
+    </h1>
+    <%= render 'surah', chapter: chapter %>
+  <% end %>
+</div>

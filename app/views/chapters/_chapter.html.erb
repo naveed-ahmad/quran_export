@@ -1,0 +1,23 @@
+<% verses = load_verses(chapter) %>
+<%= render 'fonts', verses: verses %>
+
+<h1 class="text-gold text-center chapter-name">
+  <%= chapter.chapter_number %>
+  .&nbsp<%= chapter.translated_name.name %>
+  <div>(<%= chapter.name_simple %>)</div>
+</h1>
+
+<% verses.order("verse_number asc").each do |verse| %>
+  <h3 class="text-right mb-0 nobreak arabic">
+    <% verse.words.order("position asc").each do |word| %>
+          <span class="verse-word arabic p<%= word.page_number %>-v1">
+            <%= word.code.to_s.html_safe %>
+          </span>
+    <% end %>
+  </h3>
+
+  <div>
+    <h3 class="ml-5 nobreak translation"><%= verse.verse_number %>. <%= verse.translation.text.html_safe %></h3>
+    <p class="ml-5 nobreak"><%= verse.tafsir.text.html_safe %></p>
+  </div>
+<% end %>

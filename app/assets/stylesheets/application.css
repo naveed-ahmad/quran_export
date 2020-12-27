@@ -1,0 +1,138 @@
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.page {
+    border-left: 5px solid #FFAF00;
+    border-right: 5px solid #FFAF00;
+    padding: 10px;
+}
+
+.text-gold {
+    color: #FFAF00
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    padding: 0px;
+    margin: 8px 0px 8px 0px;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1.chapter-name {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.translation {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.tafsir {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.translation sup {
+    display: none;
+}
+
+.plr-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h3 {
+    margin-top: 0.5em;
+    font-size: 17px;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 13px;
+    margin-top: 0px;
+    font-weight: normal;
+}
+
+.mt-0 {
+    margin-top: 0px;
+}
+
+.pr-5 {
+    padding-right: 5px;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+li.alwaysbreak {
+    page-break-before: always;
+}
+
+.nobreak:before {
+    clear: both;
+}
+
+.nobreak {
+    page-break-inside: avoid;
+}
+
+.mb-0 {
+    margin-bottom: 0px;
+}
+
+.text-center {
+    text-align: center;
+    width: 100%;
+}
+
+.verse-word {
+    margin: 0 5px;
+    font-size: 30px !important;
+}
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+.pageWrapper {
+    /*border-left: 5px solid #FFAF00;border-right: 5px solid #FFAF00;*/
+    padding: 10px;
+    /*border: 1px solid #000;*/
+    position: relative;
+    min-height: 100%;
+    -webkit-region-break-inside: avoid; /* added these bits to work out print issue */
+    page-break-after: always;
+    page-break-inside: avoid;
+}
+
+.footer {
+    width: 98%;
+    border-top: 1px solid #FFAF00;
+}
+
+.footerEntry {
+    font-size: 8pt;
+}
+
+ol {
+    margin: 0px;
+}

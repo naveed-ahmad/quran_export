@@ -1,0 +1,14 @@
+<style>
+  <% font_ids(verses).each do |i| %>
+
+  @font-face {
+      font-family: 'p<%= i %>-v1';
+      src: local(QCF_P<%=i.to_s.rjust(3, '0')%>),
+      url('https://quranstatic.nyc3.cdn.digitaloceanspaces.com/fonts/quran-fonts/v1/woff2/p<%=i%>.woff2') format('woff2');
+  }
+
+  .p<%= i %>-v1 {
+      font-family: 'p<%=i%>-v1';
+  }
+  <% end %>
+</style>

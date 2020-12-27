@@ -1,0 +1,18 @@
+<style>
+  <% verses.pluck(:page_number).uniq.each do |i| %>
+  
+  @font-face {
+    font-family: 'p<%= i %>-v1';
+    src: local(QCF_P<%=i.to_s.rjust(3, '0')%>),
+    url('/quran_fonts/v1/ttf/p<%=i%>.ttf') format('truetype');
+    font-display: swap;
+  }
+  
+  .p<%= i %>-v1 {
+    font-family: 'p<%=i%>-v1';
+    /*-webkit-font-smoothing: antialiased;*/
+    /*-moz-osx-font-smoothing: grayscale;*/
+  }
+
+  <% end %>
+</style>

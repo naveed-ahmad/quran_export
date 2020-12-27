@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      hr { border-bottom: 5px solid #FFAF00; width: 100%;margin: 0px; border-top: none;}
+      body{padding-top: 25px;margin-left: 0px; margin-right: 0px;padding-left: 0px; padding-right: 0px;}
+      .negative-space{
+        border-left: 5px solid #FFAF00;border-right: 5px solid #FFAF00;
+      }
+      h2 {text-align:center; border-bottom: 5px solid #FFAF00;font-size: 18px;margin-bottom: 0px;} 
+      h2 span { background:#fff; padding:0 10px;padding-left: 10px; padding-right: 10px; position: relative; top: 20px;}
+    </style>
+  </head>
+  <body>
+    <h2 class="margins"><span>
+      <%= wicked_pdf_image_tag 'logo.jpeg', width: 30 %>
+    </span></h2>
+    <div class="negative-space">&nbsp</div>
+  </body>
+</html>

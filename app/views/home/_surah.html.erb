@@ -1,0 +1,42 @@
+<% content_for :head_content do %>
+  <%= render 'fonts', verses: chapter.verses.order("verse_number asc").to_a[0..28]%>
+<%end%>
+
+<!--<ul>-->
+  <%chapter.verses.order("verse_number asc").to_a[0..28].each do |verse|%>
+    <!--<li class="anobreak">-->
+    <!--<div class="">-->
+      <h3 class="text-right mb-0 nobreak">
+        <%verse.words.order("position asc").each do |word|%>
+          <span class="verse-word">
+            <span class="p<%= word.page_number %>-v1">
+              <%= word.code.to_s.html_safe %>
+            </span>
+          </span>
+        <%end%>
+      </h3>
+      <div>
+      <!--<h3 class="mt-0"><%#=verse.verse_number%>. <%#=Nokogiri::HTML.parse(verse.translations.where(resource_content_id: 131).first.text).css("p").children.reject{|x| x.name == "sup"}.collect(&:text).join%></h3>-->
+        <%translation = verse.translations.where(resource_content_id: 131).first%>
+        <%doc = Nokogiri::HTML.parse(translation.text).css("p").children%>
+        <%foot_note = doc.select{|x| x.name == "sup"}.first.attributes["foot_note"].value rescue nil%>
+        <%if foot_note%>
+          <h3 class="mt-0 ml-5 nobreak"><%=verse.verse_number%>. <%=
+            doc.collect do |ele|
+              if ele.name == "sup"
+                "<span data-length='#{strip_tags(FootNote.find(foot_note).text).length}' class='footnote'>#{strip_tags FootNote.find(foot_note).text}</span>".html_safe
+              else
+                ele.text
+              end
+            end.join.html_safe
+          %></h3>
+          <!--<p id="foot_note-<%#=foot_note%>"><%#=strip_tags FootNote.find(foot_note).text%></p>-->
+        <%else%>
+          <h3 class="ml-5 nobreak"><%=verse.verse_number%>. <%=translation.text.html_safe%></h3>
+        <%end%>
+        <p class="ml-5 nobreak"><%=Tafsir.where(resource_content_id: 171, verse_id: verse.id).first.text%></p>
+      </div>
+    <!--</div>-->
+    <!--</li>-->
+  <%end%>
+<!--</ul>-->
